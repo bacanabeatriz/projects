@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Frequence
+{% endblock %}
+
+{% block main %}
+    <form action="/frequence" method="post">
+        <label for="concursos">
+            Concurso inicial:
+            <p>
+                <select name="concurso_inicial" id="concurso_inicial">
+                    {% for row in concursos %}
+                        <option value="{{ row.concurso }}">{{ row.concurso }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            Concurso final:
+            <p>
+                <select name="concurso_final" id="concurso_final">
+                    {% for row in concursos %}
+                        <option value="{{ row.concurso }}">{{ row.concurso }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+        </label>
+        <p>
+            <button class="btn btn-primary" type="submit">Calculate</button>
+        </p>
+    </form>
+    <table class="table table-stripped">
+        <tr>Concurso inicial: {{ concurso_inicial }} Concurso final: {{ concurso_final }} Number of concursos: {{ gap }}</th>
+    </tr>
+    <tr>
+        <th>Number</th>
+        <th>Frequency</th>
+    </tr>
+    {% for number, frequency in frequence.items() %}
+        <tr>
+            <td>{{ number }}</td>
+            <td>{{ frequency }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
