@@ -1,2 +1,2 @@
 # projects
-Studies and projects I've done
+Studies and projects I've done so far...
